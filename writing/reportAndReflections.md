@@ -3,10 +3,7 @@
 
 Question 7.
 
-## Use data exploration to determine if other diseases (besides Measles) have
-##enough data to explore the effects of vaccines. Be critical of your online
-##research. Are you convinced by the primary or credible articles that you have
-##found? Be sure to cite all articles.
+## Use data exploration to determine if other diseases (besides Measles) have enough data to explore the effects of vaccines. Be critical of your online research. Are you convinced by the primary or credible articles that you have found? Be sure to cite all articles.
 
 I looked on WHO(World Health Organization) website for some vaccine data. And I
 found data on vaccines for [diphtheria](http://apps.who.int/gho/data/node.main.WHS3_41?lang=en)
@@ -16,7 +13,7 @@ cases reported from 20 years or, more obviously, 40 years before. I am convinced
 these data since they are provided by WHO, which is a specialized agency of the
 United Nations. And these data were updated recently this passing summer.
 ![Diphtheria](images/Diphtheria.png)
-![Neonatal tetanus](images/Neonatal tetanus.png)
+![Neonatal tetanus](images/NeonatalTetanus.png)
 
 Question 8.
 
