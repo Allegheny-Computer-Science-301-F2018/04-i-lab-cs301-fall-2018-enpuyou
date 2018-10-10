@@ -23,40 +23,50 @@ ggplot(data = filter(dat, state == "California"))
 
 #Question 3.
 
-dat_caliFocus <- filter(us_contagious_diseases, state == "California")
+dat_caliFocus <- filter(us_contagious_diseases, 
+                        state == "California", between(year,1950,1979))
 
-dat_caliFocus$yearBlock[dat_caliFocus$year == 1950] <- "1950’s"
-dat_caliFocus$yearBlock[dat_caliFocus$year == 1960] <- "1960’s"
-dat_caliFocus$yearBlock[dat_caliFocus$year == 1970] <- "1970’s"
+dat_caliFocus$yearBlock[1960 > dat_caliFocus$year & dat_caliFocus$year > 1949] <- "1950’s"
+dat_caliFocus$yearBlock[1970 > dat_caliFocus$year & dat_caliFocus$year > 1959] <- "1960’s"
+dat_caliFocus$yearBlock[1980 > dat_caliFocus$year & dat_caliFocus$year > 1969] <- "1970’s"
 
-ggplot(data = dat_caliFocus) 
-+ geom_bar(mapping = aes(x = state,y = count, fill = yearBlock), 
-           position = "dodge", stat = "identity") 
-+ theme(axis.text.x = element_text(angle = 90,hjust = 1, vjust=-0.01))
+# without square root
+ggplot(data = dat_caliFocus) + 
+  geom_bar(mapping = aes(x = state,y = count, fill = yearBlock), 
+           position = "dodge", stat = "identity") + 
+  theme(axis.text.x = element_text(angle = 90,hjust = 1, vjust=-0.01))
 
-ggplot(data = dat_caliFocus)
-+ geom_bar(mapping = aes(x = state,y = sqrt(count), fill = yearBlock), 
-           position = "dodge", stat = "identity") 
-+ theme(axis.text.x = element_text(angle = 90,hjust = 1, vjust=-0.01))
+# square root count
+ggplot(data = dat_caliFocus) + 
+  geom_bar(mapping = aes(x = state,y = sqrt(count), fill = yearBlock), 
+           position = "dodge", stat = "identity") + 
+  theme(axis.text.x = element_text(angle = 90,hjust = 1, vjust=-0.01))
 
 #Question 4.
 
-us_contagious_diseases$yearBlock[us_contagious_diseases$year == 1950] <- "1950’s"
-us_contagious_diseases$yearBlock[us_contagious_diseases$year == 1960] <- "1960’s"
-us_contagious_diseases$yearBlock[us_contagious_diseases$year == 1970] <- "1970’s"
+dat_stateFocus <- filter(us_contagious_diseases, between(year,1950,1979))
 
-ggplot(data = us_contagious_diseases) 
-+ geom_bar(mapping = aes(x = state,y = sqrt(count), fill = yearBlock), 
-           position = "dodge", stat = "identity") 
-+ theme(axis.text.x = element_text(angle = 90,hjust = 1, vjust=-0.01))
+dat_stateFocus$yearBlock[1960 > dat_stateFocus$year & dat_stateFocus$year > 1949] <- "1950’s"
+dat_stateFocus$yearBlock[1970 > dat_stateFocus$year & dat_stateFocus$year > 1959] <- "1960’s"
+dat_stateFocus$yearBlock[1980 > dat_stateFocus$year & dat_stateFocus$year > 1969] <- "1970’s"
+
+ggplot(data = dat_stateFocus) + 
+  geom_bar(mapping = aes(x = state,y = sqrt(count), fill = yearBlock), 
+           position = "dodge", stat = "identity") + 
+  theme(axis.text.x = element_text(angle = 90,hjust = 1, vjust=-0.01))
 
 #Question 5.
 
-dat <- us_contagious_diseases %>% 
-  mutate(per100000rate = count * 100000 * weeks_reporting / (population * 52)) 
+dat_stateRate <- dat_stateFocus %>% 
+  mutate(per100000rate = count * 100000 * weeks_reporting / (population * 52))
 
-ggplot(data = dat, mapping = aes(x = year,y = state)) 
-+ geom_tile(mapping = aes(fill = per100000rate))
+#fill = square root count
+ggplot(data = dat_stateRate, mapping = aes(x = year,y = state)) + 
+  geom_tile(mapping = aes(fill = sqrt(count), colour = "grey"))
+
+#fill = rate
+ggplot(data = dat_stateRate, mapping = aes(x = year,y = state)) + 
+  geom_tile(mapping = aes(fill = per100000rate, colour = "grey"))
 
 #Question 6.
 
