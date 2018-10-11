@@ -45,3 +45,19 @@ why the research finding is wrong and what is right to do.
 
 ## Question 10.
 ### Write your reactions to the talk and discuss an idea which resonated with you.
+I think the talk gave us a lot of insights about data analytics and how it is applied
+in global health and other areas. For instance, Dr.Finaret told us about how they
+share data in economy researches while people don't share data in medical or biology
+disciplines. Dr.Dawson talked about how data are widely used in global health
+researches, and how important one's research finding could be. They talked about
+how they achieve data, and how they deal with them. There was one thing that
+enlightened me greatly. One of the two speakers said something like: find the
+things that cause what happened, not related to what happened. Because most of the
+time, when we try to figure out something, we don't often go directly for the issues
+that caused what happened. We usually stick on what seems to be related, and try
+to build the connections that might not even exist by ourselves. They other thing
+that they emphasized on is skepticism. This is very critical to researchers dealing
+with data, since a lot of former researchers already made some conclusions. And most
+of time, they are probably dealing with the same data, or same type of data. Be skeptical
+is to question those existed findings if they are true. For students like us, it's
+also important to be more skeptical towards the information we are receiving daily.
